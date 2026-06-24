@@ -18,37 +18,37 @@ st.set_page_config(
 
 # ── Load data ────────────────────────────────────────────────────
 @st.cache_data
-def load_data():
-app_dir = os.path.dirname(os.path.abspath(__file__))
-repo_root = os.path.dirname(app_dir)
-
-```
-cleaned_file = os.path.join(
-    repo_root,
-    "00 Data",
-    "Processed Data",
-    "AmesHousing_cleaned.csv"
-)
-
-prediction_file = os.path.join(
-    repo_root,
-    "00 Data",
-    "Feature Matrix Data",
-    "ridge_predictions.csv"
-)
-
-if not os.path.exists(cleaned_file):
-    st.error(f"Missing file: {cleaned_file}")
-    st.stop()
-
-if not os.path.exists(prediction_file):
-    st.error(f"Missing file: {prediction_file}")
-    st.stop()
-
-df = pd.read_csv(cleaned_file)
-pred = pd.read_csv(prediction_file)
-
-return df, pred
+    def load_data():
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(app_dir)
+    
+    ```
+    cleaned_file = os.path.join(
+        repo_root,
+        "00 Data",
+        "Processed Data",
+        "AmesHousing_cleaned.csv"
+    )
+    
+    prediction_file = os.path.join(
+        repo_root,
+        "00 Data",
+        "Feature Matrix Data",
+        "ridge_predictions.csv"
+    )
+    
+    if not os.path.exists(cleaned_file):
+        st.error(f"Missing file: {cleaned_file}")
+        st.stop()
+    
+    if not os.path.exists(prediction_file):
+        st.error(f"Missing file: {prediction_file}")
+        st.stop()
+    
+    df = pd.read_csv(cleaned_file)
+    pred = pd.read_csv(prediction_file)
+    
+    return df, pred
 ```
 
 df, pred = load_data()
