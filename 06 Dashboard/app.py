@@ -18,7 +18,7 @@ st.set_page_config(
 
 # ── Load data ────────────────────────────────────────────────────
 @st.cache_data
-    def load_data():
+def load_data():
     app_dir = os.path.dirname(os.path.abspath(__file__))
     repo_root = os.path.dirname(app_dir)
     
