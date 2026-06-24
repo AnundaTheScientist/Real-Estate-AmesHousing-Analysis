@@ -5,6 +5,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import os
+from pathlib import Path
+import pandas as pd
+import streamlit as st
 
 # ── Page config ─────────────────────────────────────────────────
 st.set_page_config(
@@ -15,9 +18,6 @@ st.set_page_config(
 
 # ── Load data ────────────────────────────────────────────────────
 @st.cache_data
-from pathlib import Path
-import pandas as pd
-import streamlit as st
 
 def load_data():
     # 1. Get the directory where app.py lives (06 Dashboard)
