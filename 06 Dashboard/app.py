@@ -22,7 +22,6 @@ def load_data():
     app_dir = os.path.dirname(os.path.abspath(__file__))
     repo_root = os.path.dirname(app_dir)
     
-    ```
     cleaned_file = os.path.join(
         repo_root,
         "00 Data",
@@ -49,7 +48,6 @@ def load_data():
     pred = pd.read_csv(prediction_file)
     
     return df, pred
-```
 
 df, pred = load_data()
 
