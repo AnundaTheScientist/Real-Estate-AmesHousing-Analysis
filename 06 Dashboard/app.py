@@ -101,3 +101,4 @@ with tab1:
 
     nbhd = (
         filtered.groupby('Neighborhood')['SalePrice']
+    )
