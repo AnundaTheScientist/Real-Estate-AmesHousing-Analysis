@@ -17,12 +17,13 @@ st.set_page_config(
 )
 
 # ── Load data ────────────────────────────────────────────────────
+
 @st.cache_data
 def load_data():
-
-app_dir = os.path.dirname(os.path.abspath(__file__))
+app_dir = os.path.dirname(os.path.abspath(**file**))
 repo_root = os.path.dirname(app_dir)
 
+```
 cleaned_file = os.path.join(
     repo_root,
     "00 Data",
@@ -37,10 +38,6 @@ prediction_file = os.path.join(
     "ridge_predictions.csv"
 )
 
-st.write("Checking files...")
-st.write(cleaned_file)
-st.write(prediction_file)
-
 if not os.path.exists(cleaned_file):
     st.error(f"Missing file: {cleaned_file}")
     st.stop()
@@ -53,6 +50,7 @@ df = pd.read_csv(cleaned_file)
 pred = pd.read_csv(prediction_file)
 
 return df, pred
+```
 
 df, pred = load_data()
 
