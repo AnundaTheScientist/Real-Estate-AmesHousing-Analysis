@@ -15,13 +15,30 @@ st.set_page_config(
 
 # ── Load data ────────────────────────────────────────────────────
 @st.cache_data
-def load_data():
-    app_dir   = os.path.dirname(os.path.abspath(__file__))
-    repo_root = os.path.dirname(app_dir)
-    data_dir  = os.path.join(repo_root, '00 Data', 'Processed Data')
+from pathlib import Path
+import pandas as pd
+import streamlit as st
 
-    df   = pd.read_csv(os.path.join(data_dir, 'AmesHousing_cleaned.csv'))
-    pred = pd.read_csv(os.path.join(data_dir, 'ridge_predictions.csv'))
+def load_data():
+    # 1. Get the directory where app.py lives (06 Dashboard)
+    app_dir = Path(__file__).parent.resolve()
+    
+    # 2. Get the repository root directory: 
+    repo_root = app_dir.parent
+    
+    # 3. Build the absolute path to your processed data folder
+    # Note: Ensure the folder names match your GitHub casing exactly (e.g., '00 Data' vs '00 data')
+    data_dir = repo_root / '00 Data' / 'Processed Data'
+    
+    # Debugging check: If the directory doesn't exist, print what Streamlit sees
+    if not data_dir.exists():
+        st.error(f"Directory not found: {data_dir}")
+        st.write("Available folders in root:", [p.name for p in repo_root.iterdir() if p.is_dir()])
+        return pd.DataFrame(), pd.DataFrame()
+
+    # 4. Load the files
+    df   = pd.read_csv(data_dir / 'AmesHousing_cleaned.csv')
+    pred = pd.read_csv(data_dir / 'ridge_predictions.csv')
     return df, pred
 
 df, pred = load_data()
