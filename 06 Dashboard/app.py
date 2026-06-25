@@ -25,7 +25,7 @@ st.markdown(
     div[data-testid="stSidebarCollapseButton"] {
         visibility: visible !important;
         display: block !important;
-        left: 10px !important;
+        style = {"left": "10px"} !important;
     }
     </style>
     unsafe_allow_html=True
