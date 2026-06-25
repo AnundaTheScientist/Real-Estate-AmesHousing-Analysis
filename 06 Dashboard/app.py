@@ -16,18 +16,25 @@ import streamlit as st
 st.markdown(
     """
     <style>
-
-    /* Targets older Streamlit versions */
-    div[data-testid="collapsedControl"] {
-        visibility: visible !important;
-        display: block !important;
-        style = {"left": "10px"} !important;
-    }
-    /* Targets newer Streamlit versions */
+    /* Force the collapse/expand trigger container to be visible and layered on top */
+    div[data-testid="collapsedControl"], 
     div[data-testid="stSidebarCollapseButton"] {
         visibility: visible !important;
         display: block !important;
-        style = {"left": "10px"} !important;
+        left: 20px !important;
+        top: 10px !important;
+        z-index: 999999 !important;
+    }
+    
+    /* Style the actual button inside the container so it stands out */
+    div[data-testid="collapsedControl"] button,
+    div[data-testid="stSidebarCollapseButton"] button {
+        background-color: #ff4b4b !important; /* Streamlit Red (or use #00a00a for green) */
+        color: white !important;
+        border-radius: 50% !important;
+        width: 40px !important;
+        height: 40px !important;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.3) !important;
     }
     </style>
     """,
