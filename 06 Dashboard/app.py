@@ -12,50 +12,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score
 import streamlit as st
 
-# Force the sidebar expand button to be visible on the left side
-st.markdown(
-    """
-    <style>
-    /* 1. Force the hidden expand button container to stay visible and float fixed at the top left */
-    div[data-testid="collapsedControl"] {
-        visibility: visible !important;
-        display: block !important;
-        position: fixed !important;
-        left: 20px !important;
-        top: 20px !important;
-        z-index: 999999 !important;
-        width: auto !important;
-        height: auto !important;
-    }
-    
-    /* 2. Style the physical button wrapper to make it distinct and floating */
-    div[data-testid="collapsedControl"] button {
-        background-color: #ff4b4b !important; /* High-visibility Streamlit Red */
-        border: 2px solid #ffffff !important;
-        border-radius: 50% !important; /* Circular button */
-        width: 48px !important;
-        height: 48px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7) !important;
-        cursor: pointer !important;
-    }
-
-    /* 3. Make the internal arrow icon itself completely visible and bright white */
-    div[data-testid="collapsedControl"] svg,
-    div[data-testid="collapsedControl"] span {
-        fill: #ffffff !important;
-        color: #ffffff !important;
-        width: 26px !important;
-        height: 26px !important;
-        visibility: visible !important;
-        display: block !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # ── Page config — MUST be first Streamlit command ───────────────
 st.set_page_config(
