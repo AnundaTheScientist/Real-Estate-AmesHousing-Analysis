@@ -16,32 +16,35 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    /* 1. Unhide and lock the container position to the top left screen viewport */
+    /* 1. Force the hidden expand button container to stay visible and float fixed at the top left */
     div[data-testid="collapsedControl"] {
         visibility: visible !important;
         display: block !important;
         position: fixed !important;
-        left: 15px !important;
-        top: 15px !important;
+        left: 20px !important;
+        top: 20px !important;
         z-index: 999999 !important;
+        width: auto !important;
+        height: auto !important;
     }
     
-    /* 2. Style the button into an ultra-visible circular action floating widget */
+    /* 2. Style the physical button wrapper to make it distinct and floating */
     div[data-testid="collapsedControl"] button {
-        background-color: #ff4b4b !important; /* Streamlit Accent Red */
+        background-color: #ff4b4b !important; /* High-visibility Streamlit Red */
         border: 2px solid #ffffff !important;
-        border-radius: 50% !important;
-        width: 44px !important;
-        height: 44px !important;
+        border-radius: 50% !important; /* Circular button */
+        width: 48px !important;
+        height: 48px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        box-shadow: 0px 4px 15px rgba(0,0,0,0.6) !important;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7) !important;
         cursor: pointer !important;
     }
 
-    /* 3. Force the hidden internal chevron vector icon to paint white and center */
-    div[data-testid="collapsedControl"] svg {
+    /* 3. Make the internal arrow icon itself completely visible and bright white */
+    div[data-testid="collapsedControl"] svg,
+    div[data-testid="collapsedControl"] span {
         fill: #ffffff !important;
         color: #ffffff !important;
         width: 26px !important;
