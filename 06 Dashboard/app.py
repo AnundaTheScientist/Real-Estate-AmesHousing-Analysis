@@ -19,20 +19,29 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. Inject global styling to entirely strip away the toggle mechanics
+# 2. Inject updated global styling to entirely strip away the toggle mechanics
 st.markdown(
     """
     <style>
-    /* Completely hide the 'X' collapse button inside the sidebar */
-    button[data-testid="stSidebarCollapseButton"] {
+    /* Target the base header container button specifically */
+    [data-testid="stSidebar"] button,
+    [data-testid="baseButton-header"],
+    [data-testid="stSidebarCollapseButton"],
+    div[class*="stSidebarCollapseButton"] {
         display: none !important;
         visibility: hidden !important;
     }
     
-    /* Completely hide the '>' expand button container when main workspace loads */
-    div[data-testid="collapsedControl"] {
+    /* Target the block container for collapsed controls on main screen */
+    [data-testid="collapsedControl"],
+    div[class*="collapsedControl"] {
         display: none !important;
         visibility: hidden !important;
+    }
+    
+    /* Optional: Removes extra blank padding space left behind by the hidden button */
+    [data-testid="stSidebarUserContent"] {
+        padding-top: 1rem !important;
     }
     </style>
     """,
