@@ -16,30 +16,53 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    /* Force the collapse/expand trigger container to be visible and layered on top */
+    /* 1. Force the main parent container to display and stay fixed in position */
     div[data-testid="collapsedControl"], 
     div[data-testid="stSidebarCollapseButton"] {
         visibility: visible !important;
         display: block !important;
-        left: 20px !important;
-        top: 10px !important;
+        position: fixed !important;
+        left: 15px !important;
+        top: 15px !important;
         z-index: 999999 !important;
     }
     
-    /* Style the actual button inside the container so it stands out */
+    /* 2. Turn the physical button into a high-visibility floating action circle */
     div[data-testid="collapsedControl"] button,
     div[data-testid="stSidebarCollapseButton"] button {
-        background-color: #ff4b4b !important; /* Streamlit Red (or use #00a00a for green) */
-        color: white !important;
+        background-color: #ff4b4b !important; /* Streamlit Red */
+        border: 2px solid white !important;
         border-radius: 50% !important;
-        width: 40px !important;
-        height: 40px !important;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.3) !important;
+        width: 44px !important;
+        height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.4) !important;
+        cursor: pointer !important;
+        transition: transform 0.2s ease !important;
+    }
+
+    /* Hover animation so users know it is clickable */
+    div[data-testid="stSidebarCollapseButton"] button:hover {
+        transform: scale(1.1) !important;
+    }
+
+    /* 3. Force the internal SVG chevron icon to show up white and centered */
+    div[data-testid="collapsedControl"] svg,
+    div[data-testid="stSidebarCollapseButton"] svg {
+        fill: white !important;
+        color: white !important;
+        width: 24px !important;
+        height: 24px !important;
+        visibility: visible !important;
+        display: block !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 
 # ── Page config — MUST be first Streamlit command ───────────────
