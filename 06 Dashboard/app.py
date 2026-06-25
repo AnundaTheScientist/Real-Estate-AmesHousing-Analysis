@@ -14,8 +14,9 @@ import streamlit as st
 
 # Force the sidebar expand button to be visible on the left side
 st.markdown(
-    <style>
     """
+    <style>
+
     /* Targets older Streamlit versions */
     div[data-testid="collapsedControl"] {
         visibility: visible !important;
