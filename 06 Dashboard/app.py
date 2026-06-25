@@ -68,7 +68,7 @@ html, body, [data-testid="stAppViewContainer"] {
     margin-bottom: 8px;
 }
 .kpi-value {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
     color: #EAEAEA;
     font-variant-numeric: tabular-nums;
