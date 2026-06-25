@@ -16,35 +16,43 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    /* 1. target the hidden collapse trigger container */
+    /* 1. Unhide and lock the container position to the top left screen viewport */
     div[data-testid="collapsedControl"] {
         visibility: visible !important;
         display: block !important;
+        position: fixed !important;
+        left: 15px !important;
+        top: 15px !important;
         z-index: 999999 !important;
     }
     
-    /* 2. Make the floating expand button highly visible */
+    /* 2. Style the button into an ultra-visible circular action floating widget */
     div[data-testid="collapsedControl"] button {
-        background-color: #ff4b4b !important; /* Streamlit accent red */
-        border: 1px solid #ffffff !important;
-        border-radius: 8px !important;
-        width: 40px !important;
-        height: 40px !important;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.5) !important;
+        background-color: #ff4b4b !important; /* Streamlit Accent Red */
+        border: 2px solid #ffffff !important;
+        border-radius: 50% !important;
+        width: 44px !important;
+        height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0px 4px 15px rgba(0,0,0,0.6) !important;
+        cursor: pointer !important;
     }
 
-    /* 3. Force the internal chevron arrow icon to show up bright white */
+    /* 3. Force the hidden internal chevron vector icon to paint white and center */
     div[data-testid="collapsedControl"] svg {
         fill: #ffffff !important;
         color: #ffffff !important;
-        width: 24px !important;
-        height: 24px !important;
+        width: 26px !important;
+        height: 26px !important;
+        visibility: visible !important;
+        display: block !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # ── Page config — MUST be first Streamlit command ───────────────
 st.set_page_config(
