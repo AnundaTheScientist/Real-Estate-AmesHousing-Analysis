@@ -16,53 +16,28 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    /* 1. Force the main parent container to display and stay fixed in position */
-    div[data-testid="collapsedControl"], 
-    div[data-testid="stSidebarCollapseButton"] {
-        visibility: visible !important;
-        display: block !important;
-        position: fixed !important;
-        left: 15px !important;
-        top: 15px !important;
-        z-index: 999999 !important;
-    }
-    
-    /* 2. Turn the physical button into a high-visibility floating action circle */
-    div[data-testid="collapsedControl"] button,
-    div[data-testid="stSidebarCollapseButton"] button {
-        background-color: #ff4b4b !important; /* Streamlit Red */
-        border: 2px solid white !important;
-        border-radius: 50% !important;
-        width: 44px !important;
-        height: 44px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        box-shadow: 0px 4px 12px rgba(0,0,0,0.4) !important;
-        cursor: pointer !important;
-        transition: transform 0.2s ease !important;
+    /* 1. Force the main layout content container to always make room for a sidebar */
+    div[data-testid="stMain"] {
+        margin-left: 21rem !important;
     }
 
-    /* Hover animation so users know it is clickable */
-    div[data-testid="stSidebarCollapseButton"] button:hover {
-        transform: scale(1.1) !important;
+    /* 2. Force the sidebar shell to remain fixed open on the screen */
+    section[data-testid="stSidebar"] {
+        left: 0 !important;
+        transform: none !important;
+        visibility: visible !important;
+        width: 21rem !important;
     }
 
-    /* 3. Force the internal SVG chevron icon to show up white and centered */
-    div[data-testid="collapsedControl"] svg,
-    div[data-testid="stSidebarCollapseButton"] svg {
-        fill: white !important;
-        color: white !important;
-        width: 24px !important;
-        height: 24px !important;
-        visibility: visible !important;
-        display: block !important;
+    /* 3. Hide the close button inside the sidebar to prevent accidental clicks */
+    button[data-testid="stSidebarCollapseButton"] {
+        display: none !important;
+        visibility: hidden !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 
 # ── Page config — MUST be first Streamlit command ───────────────
