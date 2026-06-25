@@ -16,23 +16,29 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    /* 1. Force the main layout content container to always make room for a sidebar */
-    div[data-testid="stMain"] {
-        margin-left: 21rem !important;
-    }
-
-    /* 2. Force the sidebar shell to remain fixed open on the screen */
-    section[data-testid="stSidebar"] {
-        left: 0 !important;
-        transform: none !important;
+    /* 1. target the hidden collapse trigger container */
+    div[data-testid="collapsedControl"] {
         visibility: visible !important;
-        width: 21rem !important;
+        display: block !important;
+        z-index: 999999 !important;
+    }
+    
+    /* 2. Make the floating expand button highly visible */
+    div[data-testid="collapsedControl"] button {
+        background-color: #ff4b4b !important; /* Streamlit accent red */
+        border: 1px solid #ffffff !important;
+        border-radius: 8px !important;
+        width: 40px !important;
+        height: 40px !important;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.5) !important;
     }
 
-    /* 3. Hide the close button inside the sidebar to prevent accidental clicks */
-    button[data-testid="stSidebarCollapseButton"] {
-        display: none !important;
-        visibility: hidden !important;
+    /* 3. Force the internal chevron arrow icon to show up bright white */
+    div[data-testid="collapsedControl"] svg {
+        fill: #ffffff !important;
+        color: #ffffff !important;
+        width: 24px !important;
+        height: 24px !important;
     }
     </style>
     """,
