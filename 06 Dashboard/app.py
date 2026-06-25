@@ -172,6 +172,25 @@ html, body, [data-testid="stAppViewContainer"] {
     margin-bottom: 4px;
 }
 
+/* ── Selectbox dropdown: force black text on white native shell ── */
+[data-testid="stSidebar"] [data-baseweb="select"] span,
+[data-testid="stSidebar"] [data-baseweb="select"] div,
+[data-testid="stSidebar"] [data-baseweb="select"] input,
+[data-testid="stSidebar"] [data-baseweb="select"] [class*="ValueContainer"] {
+    color: #111111 !important;
+}
+/* Dropdown option list items */
+[data-baseweb="menu"] li,
+[data-baseweb="menu"] [role="option"] {
+    color: #111111 !important;
+    background-color: #ffffff !important;
+}
+[data-baseweb="menu"] [aria-selected="true"],
+[data-baseweb="menu"] li:hover {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+}
+
 /* ── Plotly charts: transparent background ── */
 [data-testid="stPlotlyChart"] > div {
     border-radius: 10px;
@@ -446,8 +465,30 @@ with tab1:
         top5 = (nbhd.sort_values('Median', ascending=False)
                      .head(5)[['Neighborhood','Median','Sales']]
                      .reset_index(drop=True))
-        top5['Median'] = top5['Median'].apply(lambda x: f"${x:,.0f}")
-        st.dataframe(top5, hide_index=True, use_container_width=True)
+        fig_top5 = px.bar(
+            top5.sort_values('Median', ascending=True),
+            x='Median', y='Neighborhood',
+            orientation='h',
+            text=top5.sort_values('Median', ascending=True)['Median']
+                     .apply(lambda x: f"${x:,.0f}"),
+            color='Median',
+            color_continuous_scale=[[0,'#0d6e57'],[1,'#00C49A']],
+            custom_data=['Sales'],
+            labels={'Median':'Median Price ($)','Neighborhood':''}
+        )
+        fig_top5.update_traces(
+            textposition='outside',
+            textfont=dict(color='#EAEAEA', size=11),
+            hovertemplate='<b>%{y}</b><br>Median: $%{x:,.0f}<br>Sales: %{customdata[0]}<extra></extra>'
+        )
+        fig_top5 = dark_layout(fig_top5, height=280,
+                                title="Top 5 Premium Neighborhoods")
+        fig_top5.update_layout(
+            coloraxis_showscale=False,
+            xaxis_title="",
+            xaxis_showticklabels=False
+        )
+        st.plotly_chart(fig_top5, use_container_width=True)
 
     with col2:
         st.markdown('<div class="section-header">Top 5 Affordable Neighborhoods</div>',
@@ -455,8 +496,30 @@ with tab1:
         bot5 = (nbhd.sort_values('Median', ascending=True)
                      .head(5)[['Neighborhood','Median','Sales']]
                      .reset_index(drop=True))
-        bot5['Median'] = bot5['Median'].apply(lambda x: f"${x:,.0f}")
-        st.dataframe(bot5, hide_index=True, use_container_width=True)
+        fig_bot5 = px.bar(
+            bot5.sort_values('Median', ascending=False),
+            x='Median', y='Neighborhood',
+            orientation='h',
+            text=bot5.sort_values('Median', ascending=False)['Median']
+                     .apply(lambda x: f"${x:,.0f}"),
+            color='Median',
+            color_continuous_scale=[[0,'#7a3a1e'],[1,'#F5A623']],
+            custom_data=['Sales'],
+            labels={'Median':'Median Price ($)','Neighborhood':''}
+        )
+        fig_bot5.update_traces(
+            textposition='outside',
+            textfont=dict(color='#EAEAEA', size=11),
+            hovertemplate='<b>%{y}</b><br>Median: $%{x:,.0f}<br>Sales: %{customdata[0]}<extra></extra>'
+        )
+        fig_bot5 = dark_layout(fig_bot5, height=280,
+                                title="Top 5 Affordable Neighborhoods")
+        fig_bot5.update_layout(
+            coloraxis_showscale=False,
+            xaxis_title="",
+            xaxis_showticklabels=False
+        )
+        st.plotly_chart(fig_bot5, use_container_width=True)
 
     st.markdown('<div class="section-header" style="margin-top:24px;">Price Distribution</div>',
                 unsafe_allow_html=True)
