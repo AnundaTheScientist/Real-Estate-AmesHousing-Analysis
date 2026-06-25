@@ -10,6 +10,29 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import RidgeCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score
+import streamlit as st
+
+# Force the sidebar expand button to be visible on the left side
+st.markdown(
+    """
+    <style>
+    /* Targets older Streamlit versions */
+    div[data-testid="collapsedControl"] {
+        visibility: visible !important;
+        display: block !important;
+        left: 10px !important;
+    }
+    /* Targets newer Streamlit versions */
+    div[data-testid="stSidebarCollapseButton"] {
+        visibility: visible !important;
+        display: block !important;
+        left: 10px !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # ── Page config — MUST be first Streamlit command ───────────────
 st.set_page_config(
