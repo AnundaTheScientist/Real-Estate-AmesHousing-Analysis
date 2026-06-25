@@ -12,44 +12,32 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score
 import streamlit as st
 
-# 1. FORCE THE SIDEBAR OPEN VIA CODE
-# Place this at the absolute top of your script right after imports!
+# 1. Force the layout configuration engine to initialize in expanded view
 st.set_page_config(
     page_title="Ames Housing Intelligence Hub",
     layout="wide",
-    initial_sidebar_state="expanded" # This natively overrides the browser's hidden state
+    initial_sidebar_state="expanded"
 )
 
-# 2. THE CORRECT MARKDOWN CSS CONFIGURATION
-# This safely styles the sidebar expand button without breaking its structure
+# 2. Inject global styling to entirely strip away the toggle mechanics
 st.markdown(
     """
     <style>
-    /* Force the collapse/expand trigger container to remain visible */
-    div[data-testid="collapsedControl"] {
-        visibility: visible !important;
-        display: block !important;
+    /* Completely hide the 'X' collapse button inside the sidebar */
+    button[data-testid="stSidebarCollapseButton"] {
+        display: none !important;
+        visibility: hidden !important;
     }
     
-    /* Make the button stand out distinctly when collapsed */
-    div[data-testid="collapsedControl"] button {
-        background-color: #ff4b4b !important; /* Streamlit Accent Red */
-        border: 1px solid #ffffff !important;
-        border-radius: 8px !important;
-        color: white !important;
-    }
-
-    /* Force the inner chevron arrow vector to paint white */
-    div[data-testid="collapsedControl"] svg {
-        fill: #ffffff !important;
-        color: #ffffff !important;
+    /* Completely hide the '>' expand button container when main workspace loads */
+    div[data-testid="collapsedControl"] {
+        display: none !important;
+        visibility: hidden !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
-
 
 # ── Page config — MUST be first Streamlit command ───────────────
 st.set_page_config(
