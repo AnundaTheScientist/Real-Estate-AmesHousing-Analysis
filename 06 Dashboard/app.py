@@ -272,12 +272,17 @@ with st.sidebar:
 
     st.markdown('<div class="sidebar-label">Neighborhood</div>', unsafe_allow_html=True)
     all_neighborhoods = sorted(df['Neighborhood'].unique())
-    selected_nbhd = st.multiselect(
-        label="neighborhood_select",
-        options=all_neighborhoods,
-        default=all_neighborhoods,
+    nbhd_options      = ["All Neighborhoods"] + all_neighborhoods
+    selected_nbhd_opt = st.selectbox(
+        label="neighborhood_dropdown",
+        options=nbhd_options,
+        index=0,
         label_visibility="collapsed"
     )
+    # If "All" selected pass every neighborhood; otherwise just the one chosen
+    selected_nbhd = (all_neighborhoods
+                     if selected_nbhd_opt == "All Neighborhoods"
+                     else [selected_nbhd_opt])
 
     st.markdown('<div class="sidebar-label" style="margin-top:16px;">Sale Price Range</div>',
                 unsafe_allow_html=True)
