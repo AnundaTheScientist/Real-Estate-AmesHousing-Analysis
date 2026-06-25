@@ -19,7 +19,7 @@ st.markdown(
     div[data-testid="collapsedControl"] {
         visibility: visible !important;
         display: block !important;
-        left: 10px !important;
+        style = {"left": "10px"} !important;
     }
     /* Targets newer Streamlit versions */
     div[data-testid="stSidebarCollapseButton"] {
