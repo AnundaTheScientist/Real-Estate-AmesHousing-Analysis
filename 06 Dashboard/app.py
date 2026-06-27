@@ -45,34 +45,22 @@ html, body, [data-testid="stAppViewContainer"],
     color: #C8D4E8 !important;
 }
 
-/* ── Sidebar collapse button (inside sidebar) — keep visible ── */
+/* ── Permanent Sidebar Lock & Toggle Removal ── */
 [data-testid="stSidebarCollapseButton"] {
-    display:     flex !important;
-    visibility:  visible !important;
+    display: none !important;
+    visibility: hidden !important;
 }
-[data-testid="stSidebarCollapseButton"] button {
-    background: rgba(255,255,255,0.06) !important;
-    border:     1px solid rgba(255,255,255,0.1) !important;
-    border-radius: 6px !important;
-    color: #4FC3F7 !important;
+[data-testid="stSidebarCollapsedControl"], [data-testid="collapsedControl"] {
+    display: none !important;
+    visibility: hidden !important;
 }
-
-/* ── Expand arrow — shown on main canvas when sidebar is closed ── */
-[data-testid="stSidebarCollapsedControl"] {
+section[data-testid="stSidebar"] {
     display: flex !important;
     visibility: visible !important;
-    position: fixed !important;
-    top: 15px !important;
-    right: 15px !important;       /* Shifts the position completely to the top-right */
-    left: auto !important;        /* Breaks the baseline layout pull from the left boundary */
-    z-index: 999999 !important;   /* Ensures the toggle floats safely above charts */
-    background: #132238 !important;
-    border: 1px solid rgba(79, 195, 247, 0.45) !important;
-    border-radius: 8px !important;
-    padding: 6px 8px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
-    transition: all 0.2s ease-in-out !important;
+    transform: none !important;
+    transition: none !important;
 }
+
 
 /* Color overrides for internal iconography elements */
 [data-testid="stSidebarCollapsedControl"] button svg, 
