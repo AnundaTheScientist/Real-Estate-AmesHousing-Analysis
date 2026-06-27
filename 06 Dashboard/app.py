@@ -58,23 +58,34 @@ html, body, [data-testid="stAppViewContainer"],
 }
 
 /* ── Expand arrow — shown on main canvas when sidebar is closed ── */
-[data-testid="collapsedControl"] {
-    display:    flex !important;
+[data-testid="stSidebarCollapsedControl"] {
+    display: flex !important;
     visibility: visible !important;
-    position:   fixed !important;
-    top:        12px !important;
-    left:       12px !important;
-    z-index:    1000 !important;
+    position: fixed !important;
+    top: 15px !important;
+    right: 15px !important;       /* Shifts the position completely to the top-right */
+    left: auto !important;        /* Breaks the baseline layout pull from the left boundary */
+    z-index: 999999 !important;   /* Ensures the toggle floats safely above charts */
     background: #132238 !important;
-    border:     1px solid rgba(79,195,247,0.35) !important;
+    border: 1px solid rgba(79, 195, 247, 0.45) !important;
     border-radius: 8px !important;
-    padding:    4px 6px !important;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.4) !important;
-}
-[data-testid="collapsedControl"] button svg {
-    fill: #4FC3F7 !important;
+    padding: 6px 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.2s ease-in-out !important;
 }
 
+/* Color overrides for internal iconography elements */
+[data-testid="stSidebarCollapsedControl"] button svg, 
+[data-testid="stSidebarCollapsedControl"] svg {
+    fill: #4FC3F7 !important;
+    color: #4FC3F7 !important;
+}
+
+/* Interactive hover adjustments for smoother client navigation */
+[data-testid="stSidebarCollapsedControl"]:hover {
+    border-color: #4FC3F7 !important;
+    transform: scale(1.05);
+}
 /* ── Tabs ── */
 [data-testid="stTabs"] {
     border-bottom: 1px solid rgba(255,255,255,0.07);
