@@ -974,17 +974,17 @@ with tab4:
 # ════════════════════════════════════════════════════════════════
 st.markdown("""
 <div style='
-  text-align:     center;
-  padding:        32px 0 20px;
-  font-size:      11px;
-  color:          rgba(255,255,255,0.12);
-  letter-spacing: 0.1em;
-  border-top:     1px solid rgba(255,255,255,0.06);
-  margin-top:     32px;
-  font-family:    Inter, sans-serif;
+ text-align: center;
+ padding: 32px 0 20px;
+ font-size: 11px;
+ color: rgba(255,255,255,0.25);
+ letter-spacing: 0.1em;
+ border-top: 1px solid rgba(255,255,255,0.06);
+ margin-top: 32px;
+ font-family: Inter, sans-serif;
 '>
-  AMES HOUSING ANALYTICS HUB &nbsp;·&nbsp;
-  PYTHON &nbsp;·&nbsp; STREAMLIT &nbsp;·&nbsp; PLOTLY &nbsp;·&nbsp; SCIKIT-LEARN
-  &nbsp;·&nbsp; DATA: DE COCK (2011)
+ AMES HOUSING ANALYTICS HUB &nbsp;·&nbsp; DESIGNED BY <strong style="color: #4FC3F7;">Anunda The Scientist</strong> &nbsp;·&nbsp;
+ PYTHON &nbsp;·&nbsp; STREAMLIT &nbsp;·&nbsp; PLOTLY &nbsp;·&nbsp; SCIKIT-LEARN
 </div>
 """, unsafe_allow_html=True)
+
