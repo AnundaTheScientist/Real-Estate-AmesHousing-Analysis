@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏡 Ames Housing — Real Estate Price Intelligence
+# Ames Housing — Real Estate Price Intelligence
 
 ### End-to-end machine learning project predicting residential sale prices  
 ### across 28 neighborhoods in Ames, Iowa (2006–2010)
@@ -13,15 +13,15 @@
 
 ---
 
-**[📊 Launch Interactive Dashboard](https://real-estate-ameshousing-analysis.streamlit.app)** &nbsp;·&nbsp;
-**[📓 View Notebooks](#-project-structure)** &nbsp;·&nbsp;
-**[💡 Key Findings](#-key-findings)**
+**[ Launch Interactive Dashboard](https://real-estate-ameshousing-analysis.streamlit.app)** &nbsp;·&nbsp;
+**[ View Notebooks](#-project-structure)** &nbsp;·&nbsp;
+**[ Key Findings](#-key-findings)**
 
 </div>
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This project applies the full **CRISP-DM data science methodology** to 2,928 residential property sales in Ames, Iowa — answering one business question:
 
@@ -40,22 +40,22 @@ The result is a production-ready machine learning pipeline with an interactive S
 
 ---
 
-## 📊 Interactive Dashboard
+## Interactive Dashboard
 
 > Click the image below to launch the live dashboard
 
 [![Dashboard Preview](06%20Dashboard/dashboard_preview.png)](https://real-estate-ameshousing-analysis.streamlit.app)
 
 **Features:**
-- 🔍 Filter by neighborhood, price range, quality, and year built
-- 📍 28-neighborhood price landscape with hover details  
-- 🤖 Live Ridge Regression model predictions
-- 📈 Market trend analysis 2006–2010 including 2008 crisis dip
-- ⚡ Built with Python · Streamlit · Plotly · scikit-learn
+-  Filter by neighborhood, price range, quality, and year built
+-  28-neighborhood price landscape with hover details  
+-  Live Ridge Regression model predictions
+-  Market trend analysis 2006–2010 including 2008 crisis dip
+-  Built with Python · Streamlit · Plotly · scikit-learn
 
 ---
 
-## 💡 Key Findings
+## Key Findings
 
 ### 1 — Overall Quality is the #1 Price Driver
 A house rated 8/10 sells for nearly **twice** the price of one rated 5/10.  
@@ -82,7 +82,7 @@ sufficient for pre-listing valuation, acquisition screening, and portfolio estim
 
 ---
 
-## 🤖 Model Results
+## Model Results
 
 | Model | Train RMSE | Test RMSE | CV RMSE | Dollar RMSE | Verdict |
 |---|---|---|---|---|---|
@@ -97,7 +97,7 @@ Ridge's gap of 0.008 means reliable generalisation to houses it has never seen.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Real-Estate-AmesHousing-Analysis/
@@ -142,7 +142,7 @@ Real-Estate-AmesHousing-Analysis/
 
 ---
 
-## 🔬 Methodology — CRISP-DM Pipeline
+## Methodology — CRISP-DM Pipeline
 
 ```
 Business Understanding → Data Understanding → Data Preparation
@@ -162,7 +162,7 @@ Business Understanding → Data Understanding → Data Preparation
 
 ---
 
-## ⚙️ Feature Engineering Highlights
+## Feature Engineering Highlights
 
 | Feature | Source columns | Rationale |
 |---|---|---|
@@ -177,7 +177,7 @@ Business Understanding → Data Understanding → Data Preparation
 
 ---
 
-## 🚀 Run Locally
+## Run Locally
 
 ```bash
 # 1. Clone the repository
@@ -203,7 +203,7 @@ streamlit run app.py
 
 ---
 
-## 📦 Requirements
+## Requirements
 
 ```
 pandas
@@ -219,7 +219,7 @@ joblib
 
 ---
 
-## 📚 Data Source
+## Data Source
 
 **Ames Housing Dataset** — Dean De Cock (2011)  
 *"Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project"*  
